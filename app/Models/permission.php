@@ -11,4 +11,9 @@ class permission extends Model
     use HasFactory,Uuids;
 
     protected $fillable=['name'];
+public function roles()
+{
+    return $this->belongsToMany(role::class,'role_permissions');
+}
+
 }

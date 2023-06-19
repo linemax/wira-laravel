@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('role_users', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignUuid('user_id')->nullable()->references('id')->on('users');
+            $table->foreignUuid('user_id')->fillable()->references('id')->on('users');
             $table->foreignUuid('role_id')->nullable()->references('id')->on('role');
             $table->timestamps();
         });
