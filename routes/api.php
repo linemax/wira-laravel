@@ -1,11 +1,10 @@
 <?php
-<<<<<<< HEAD
+
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProjectController;
-=======
 
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
->>>>>>> fcc06e67c4dfe47d05374ff6b764ff13425e3676
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +23,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-<<<<<<< HEAD
+
 Route::prefix('teams')->name('teams')->controller(TeamController::class)->group(function () {
     Route::get('', 'index');
     Route::post('', 'store');
@@ -64,7 +63,6 @@ Route::prefix('workFlows')->name('tasks')->controller(TaskController::class)->gr
     Route::get('{task}', 'show');
     Route::delete('{task}', 'destroy');   
 });
-=======
 /*=========================================Nzioka Routes======================================*/
 
 Route::prefix('role')->name('role')->controller(RoleController::class)->group(function(){
@@ -82,4 +80,13 @@ Route::prefix('permission')->name('permission')->controller(PermissionController
     Route::post('{permission}','update');
     Route::delete('{permission}','destroy');
   });
->>>>>>> fcc06e67c4dfe47d05374ff6b764ff13425e3676
+
+//   Route::prefix('dashboard')->name('dashboard')->controller(DashboardController::class)->group(function()
+//   {
+//   Route::get('','index');
+//   Route::post('','store');
+//   Route::get('{dashboard}','show');
+//   Route::post('{dashboard}','update');
+//   Route::delete('{dashboard}','destroy');
+//   });
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
