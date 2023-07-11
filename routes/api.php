@@ -1,5 +1,10 @@
 <?php
+
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProjectController;
+
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -57,3 +62,30 @@ Route::prefix('workFlows')->name('tasks')->controller(TaskController::class)->gr
     Route::get('{task}', 'show');
     Route::delete('{task}', 'destroy');   
 });
+/*=========================================Nzioka Routes======================================*/
+
+Route::prefix('role')->name('role')->controller(RoleController::class)->group(function(){
+  Route::get('','index');
+  Route::post('','store');
+  Route::get('{role}','show');
+  Route::post('{role}','update');
+  Route::delete('{role}','destroy');
+});
+
+Route::prefix('permission')->name('permission')->controller(PermissionController::class)->group(function(){
+    Route::get('','index');
+    Route::post('','store');
+    Route::get('{permission}','show');
+    Route::post('{permission}','update');
+    Route::delete('{permission}','destroy');
+  });
+
+//   Route::prefix('dashboard')->name('dashboard')->controller(DashboardController::class)->group(function()
+//   {
+//   Route::get('','index');
+//   Route::post('','store');
+//   Route::get('{dashboard}','show');
+//   Route::post('{dashboard}','update');
+//   Route::delete('{dashboard}','destroy');
+//   });
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
