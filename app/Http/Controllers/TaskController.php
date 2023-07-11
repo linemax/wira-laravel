@@ -25,9 +25,9 @@ class TaskController extends Controller
     public function store(StoreTaskRequest $request)
     {
         //
-        Task::create([
+        Task::create(
             $request->validated()
-        ]);
+        );
         return response(status: 200);
     }
 
@@ -48,9 +48,9 @@ class TaskController extends Controller
     public function update(UpdateTaskRequest $request, Task $task)
     {
         //
-        $task->update([
+        $task->update(
             $request->validated()
-        ]);
+        );
         return response(status: 200);
     }
 

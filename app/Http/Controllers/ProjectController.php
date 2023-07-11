@@ -24,9 +24,9 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         //
-        Project::create([
+        Project::create(
             $request->validated()
-        ]);
+        );
         return response(status: 200);
     }
 

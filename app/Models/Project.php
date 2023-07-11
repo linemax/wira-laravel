@@ -13,7 +13,6 @@ class Project extends Model
         'name',
         'description',        
         'code',
-        'work_flow_id',
     ];
 
     public function workflows(){

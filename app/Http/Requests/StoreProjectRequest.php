@@ -25,9 +25,8 @@ class StoreProjectRequest extends FormRequest
             //
             'name' => ['string', 'required'],
             'description' => ['string', 'required'],
-            // 'priority' => ['string', 'required'],
             'code' => ['string', 'required'],
-            'work_flow_id' => ['uuid', 'required'],
+            'work_flow_id' => ['uuid', 'nullable'],
         ];
     }
 }
