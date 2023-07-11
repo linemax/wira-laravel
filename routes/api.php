@@ -1,5 +1,10 @@
 <?php
+
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProjectController;
+
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -74,3 +79,13 @@ Route::prefix('permission')->name('permission')->controller(PermissionController
     Route::post('{permission}','update');
     Route::delete('{permission}','destroy');
   });
+
+//   Route::prefix('dashboard')->name('dashboard')->controller(DashboardController::class)->group(function()
+//   {
+//   Route::get('','index');
+//   Route::post('','store');
+//   Route::get('{dashboard}','show');
+//   Route::post('{dashboard}','update');
+//   Route::delete('{dashboard}','destroy');
+//   });
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
